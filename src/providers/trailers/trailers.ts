@@ -1,30 +1,22 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {ApiProvider} from "../api/api";
 import {Movie} from "../../model/Movie";
-import Trailer from "../../../../../Angular/tp1.3/Trailer";
+//import {Trailer} from "../../model/Trailer";
 
-/*
-  Generated class for the TrailersProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class TrailersProvider {
 
-  movies:Array<Movie>;
+  movies:Array<Movie> = [];
 
-  constructor(private apiService: ApiProvider) {
+  constructor(private apiProvider: ApiProvider) {
   }
 
-  getTrailerListPromise() {
+  getTrailersPromise() {
     return new Promise((resolve, reject) => {
-      this.apiService.get()
+      this.apiProvider.get()
         .subscribe((result: any) => {
 
-          //test:
-          (<any>result).forEach( function(m:any) {
+          /*(<any>result).forEach( function(m:any) {
             let t:any = m.trailers[0];
             let newTrailer:Trailer = new Trailer(t.postdate, t.url, t.type, t.exclusive, t.hd);
 
@@ -34,14 +26,13 @@ export class TrailersProvider {
             let newMovie:Movie = new Movie(m.title, m.releasedate, m.studio, m.poster, m.location, m.rating, m.genre, m.directors, m.actors, trailers);
             this.movies.push(newMovie);
           });
-          //
+          */
 
-          /*
           this.movies = result.map((movie) => new Movie(movie.title, movie.studio, movie.releasedate,
             movie.poster, movie.location, movie.rating, movie.genre, movie.directors, movie.actors));
-          */
+
         }, () => {
-          console.log('error');
+          console.log('error depuis trailerProvider');
           reject();
         }, () => {
           resolve();

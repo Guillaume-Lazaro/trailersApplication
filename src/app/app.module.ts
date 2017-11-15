@@ -12,6 +12,7 @@ import {TrailerPage} from "../pages/trailer/trailer";
 import {LoginPage} from "../pages/login/login";
 import { ApiProvider } from '../providers/api/api';
 import { TrailersProvider } from '../providers/trailers/trailers';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { TrailersProvider } from '../providers/trailers/trailers';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

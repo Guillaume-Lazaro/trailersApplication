@@ -2,7 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {List, NavController} from 'ionic-angular';
 import {Movie} from "../../model/Movie";
 import {TrailersProvider} from "../../providers/trailers/trailers";
-import {TrailerPage} from "../trailer/trailer";
+//import {TrailerPage} from "../trailer/trailer";
 
 @Component({
   selector: 'page-home',
@@ -11,17 +11,17 @@ import {TrailerPage} from "../trailer/trailer";
 export class HomePage {
 
   @ViewChild('listMovies') list: List;
-  listMovies: Array<Movie> = [];
+  movies: Array<Movie> = [];
 
-  constructor(public navCtrl: NavController, public trailerService: TrailersProvider) {
+  constructor(public navCtrl: NavController, public trailerProvider: TrailersProvider) {
 
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TrailersPage');
-    this.trailerService.getTrailerListPromise()
+    this.trailerProvider.getTrailersPromise()
       .then(() => {
-        this.listMovies = this.trailerService.getClone();
+        this.movies = this.trailerProvider.getClone();
+        console.log('src=',this.movies[0].posterUrl);
       });
   }
 

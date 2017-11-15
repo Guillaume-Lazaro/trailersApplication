@@ -11,10 +11,10 @@
   Liste des trailers:
 
   <ion-list #listMovies>
-    <ion-item *ngFor="let movie of listMovies">
+    <ion-item *ngFor="let movie of movies">
       <div >
-        <p>{{movie.title}}</p>
-        <img class="image" src="{{movie.poster}}">
+        <img class="image" src="{{movie.posterUrl}}">
+        <p> {{movie.title}} </p>
         <!--
         (click)="goToMovie(movie)"
         -->

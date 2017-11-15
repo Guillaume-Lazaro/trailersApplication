@@ -12,7 +12,7 @@ export class Movie {
   actors:Array<string>;   //TODO classe person?
   trailers:Array<Trailer>;
 
-  constructor(title: string, releaseDate: string, studio: string, posterUrl: string, location: string, rating: string, genre: Array<string>, directors: string, actors: Array<string>, trailers: Array<Trailer>) {
+  constructor(title: string, releaseDate: string, studio: string, posterUrl: string, location: string, rating: string, genre: Array<string>, directors: string, actors: Array<string>, trailers?: Array<Trailer>) {
     this.title = title;
     this.releaseDate = releaseDate;
     this.studio = studio;
