@@ -23,7 +23,7 @@ export class LoginPage {
   constructor(formBuilder: FormBuilder, private storage: Storage, private toastCtrl: ToastController, public navCtrl : NavController,
               public events: Events) {
     this.emailFormControl = formBuilder.control('', [Validators.email, Validators.required]);
-    this.passwordFormControl = formBuilder.control('', [ Validators.required]);
+    this.passwordFormControl = formBuilder.control('', [ Validators.minLength(6),Validators.required]);
     this.rememberMeFormControl = formBuilder.control('');
 
     this.userFormGroup = formBuilder.group({

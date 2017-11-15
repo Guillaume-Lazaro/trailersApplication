@@ -12,20 +12,20 @@
         <ion-input formControlName="userEmail"></ion-input>
       </ion-item>
       <div *ngIf="emailFormControl.dirty && emailFormControl.hasError('email')">
-        Dirty?
+        Email Incorrect
       </div>
       <div *ngIf="emailFormControl.dirty && emailFormControl.hasError('required')">
-        Dirty!
+        Email requis
       </div>
       <ion-item>
         <ion-label floating >Mot de passe: </ion-label>
         <ion-input type="password" formControlName="userPassword"></ion-input>
       </ion-item>
       <div *ngIf="passwordFormControl.errors && passwordFormControl.dirty">
-        Le password est dirty!
+        Mot de passe incorrect
       </div>
       <div *ngIf="passwordFormControl.dirty && passwordFormControl.hasError('required')">
-        Blablabla
+        Mot de passe requis
       </div>
     </div>
 
