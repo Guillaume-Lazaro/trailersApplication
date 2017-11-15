@@ -64,7 +64,7 @@ export class LoginPage {
   }
 
   goToHomePage(){
-    this.events.publish('user:login');
+    this.events.publish('user:login'); //Pas encore utilisé...
     this.navCtrl.pop();
   }
 }
