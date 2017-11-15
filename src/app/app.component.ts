@@ -18,7 +18,6 @@ export class MyApp {
   rootPage:any = HomePage;
   prefsPage:any = PrefsPage;
   favorisPage:any = FavorisPage;
-  trailerPage:any = TrailerPage;
   loginPage:any = LoginPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {

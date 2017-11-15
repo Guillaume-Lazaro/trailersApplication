@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {IonicPage, NavController, ToastController} from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -14,12 +7,30 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  account: { email: string, password: string } = {
+    email: 'test@example.com',
+    password: 'test'
+  };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public toastCtrl: ToastController,) { }
+
+  doLogin() {
+
+    if (this.account.password === '123456') {
+      let toast = this.toastCtrl.create({
+        message: 'Cool! Tu es maintenant loggé',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+    } else {
+      let toast = this.toastCtrl.create({
+        message: 'Mauvais password :/',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+    }
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
-
 }
