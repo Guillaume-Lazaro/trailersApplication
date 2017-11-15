@@ -13,6 +13,8 @@ import {LoginPage} from "../pages/login/login";
 import { ApiProvider } from '../providers/api/api';
 import { TrailersProvider } from '../providers/trailers/trailers';
 import { HttpClientModule } from '@angular/common/http';
+import {IonicStorageModule} from "@ionic/storage";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -26,6 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

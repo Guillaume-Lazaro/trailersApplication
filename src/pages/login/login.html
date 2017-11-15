@@ -4,24 +4,39 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <form (submit)="doLogin()">
-    <ion-list>
-
+<ion-content padding>
+  <form (ngSubmit)="doLogin()" [formGroup]="userFormGroup">
+    <div>
       <ion-item>
-        <ion-label fixed>Email</ion-label>
-        <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
+        <ion-label floating>Email: </ion-label>
+        <ion-input formControlName="userEmail"></ion-input>
       </ion-item>
-
-      <ion-item>
-        <ion-label fixed>Mot de passe</ion-label>
-        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
-      </ion-item>
-
-      <div padding>
-        <button ion-button color="primary" block>Login</button>
+      <div *ngIf="emailFormControl.dirty && emailFormControl.hasError('email')">
+        Dirty?
       </div>
+      <div *ngIf="emailFormControl.dirty && emailFormControl.hasError('required')">
+        Dirty!
+      </div>
+      <ion-item>
+        <ion-label floating >Mot de passe: </ion-label>
+        <ion-input type="password" formControlName="userPassword"></ion-input>
+      </ion-item>
+      <div *ngIf="passwordFormControl.errors && passwordFormControl.dirty">
+        Le password est dirty!
+      </div>
+      <div *ngIf="passwordFormControl.dirty && passwordFormControl.hasError('required')">
+        Blablabla
+      </div>
+    </div>
 
-    </ion-list>
+    <ion-item>
+      <ion-label>Souvient toi plz</ion-label>
+      <ion-checkbox formControlName="rememberMe"></ion-checkbox>
+    </ion-item>
+
+    <button ion-button type="submit" [disabled]="userFormGroup.invalid" >
+      Login
+    </button>
+
   </form>
 </ion-content>
