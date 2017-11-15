@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {List, NavController} from 'ionic-angular';
 import {Movie} from "../../model/Movie";
 import {TrailersProvider} from "../../providers/trailers/trailers";
+import {TrailerPage} from "../trailer/trailer";
 //import {TrailerPage} from "../trailer/trailer";
 
 @Component({
@@ -25,10 +26,7 @@ export class HomePage {
       });
   }
 
-  /*
-  gotToMovie(movie) {
+  goToMovie(movie: Movie) {
     this.navCtrl.push(TrailerPage, {movie: movie});
   }
-  */
-
 }

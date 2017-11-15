@@ -12,12 +12,9 @@
 
   <ion-list #listMovies>
     <ion-item *ngFor="let movie of movies">
-      <div >
+      <div (click)="goToMovie(movie)">
         <img class="image" src="{{movie.posterUrl}}">
         <p> {{movie.title}} </p>
-        <!--
-        (click)="goToMovie(movie)"
-        -->
       </div>
     </ion-item>
   </ion-list>
